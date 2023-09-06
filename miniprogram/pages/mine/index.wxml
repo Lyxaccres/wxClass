@@ -1,0 +1,15 @@
+<!--pages/mine/index.wxml-->
+<van-cell-group inset wx:for="{{groupText}}" wx:key>
+  <van-cell title="{{item.title}}" value="{{item.text}}"/>
+</van-cell-group>
+<van-cell-group inset>
+  <van-cell title="修改信息" value=">" bind:tap="showsheet"/>
+</van-cell-group>
+
+<van-dialog id="van-dialog" />
+<van-action-sheet
+  show="{{ show }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>

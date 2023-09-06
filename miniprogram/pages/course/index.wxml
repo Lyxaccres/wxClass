@@ -1,0 +1,45 @@
+<!--pages/course/index.wxml-->
+<view class="centent">
+    <image class="centent-img" src="../../asset/tab/刷新.png" mode="aspectFill"></image>
+    <view bindtap="selectWeek" class="centent-title">第{{nowweek}}周</view>
+  </view>
+<view class="container">
+
+  <view class="week-list">
+    <view class="now-month">
+      <text>{{nowMonth}}</text>
+      <text>月</text>
+    </view>
+    <view class="week-item" wx:for="{{weekDayCount}}" wx:key>
+      <text class="week-name">周{{weekIndexText[index]}}</text>
+      <text class="week-date">
+      {{weekCalendar[index] == 1 ? (nowMonth == 12 || nowMonth == 1 ? 1 : nowMonth + 1)+'月1' : (weekCalendar[index])}}日
+      </text>
+    </view>
+  </view>
+  <view class="course-content">
+    <view class="course-nums">
+      <view class="course-num" wx:for="{{12}}" wx:key>
+        {{ index + 1 > 9 ? index + 1 : '0' + (index+1) }}
+      </view>
+    </view>
+    <view class="course-list">
+      <view class="course-item" wx:for="{{courseList}}" wx:key="key" style="left: {{(item.week - 1) * ((windowWidth * 2 - 50) / 7)}}rpx;top:{{(item.section - 1) * 120}}rpx;height: {{item.sectionCount * 120}}rpx;">
+        <view class="course-item_content" style="background-color: {{item.color}};">
+          {{item.name}}@{{item.address}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<van-popup show="{{showSwitchWeek}}" position="bottom" round bind:close="hideSwicth">
+  <view class="switch-week-popup">
+    <view class="switch-week-title">切换周数</view>
+    <view class="switch-week-list">
+      <view class="switch-week-item" wx:for="{{totaWeek}}" wx:key>
+        <view bindtap="switchWeek" data-week="{{item + 1}}" class="switch-week-item-box {{nowweek == index + 1 ? 'active' : ''}}">{{item + 1}}
+        </view>
+      </view>
+    </view>
+  </view>
+</van-popup>

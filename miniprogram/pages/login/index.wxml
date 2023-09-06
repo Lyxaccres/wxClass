@@ -1,0 +1,18 @@
+<!--pages/login/index.wxml-->
+<view class="container">
+  <view class="login">
+    <van-dropdown-menu>
+      <van-dropdown-item bind:change="onSwitch1Change" value="{{ value1 }}" options="{{ option3 }}" />
+    </van-dropdown-menu>
+    <van-dropdown-menu>
+      <van-dropdown-item bind:change="onSwitch2Change" value="{{ value1 }}" options="{{ option1 }}" />
+    </van-dropdown-menu>
+    <van-dropdown-menu>
+      <van-dropdown-item bind:change="onSwitch3Change" value="{{ value1 }}" options="{{ option2 }}" />
+    </van-dropdown-menu>
+    <van-dropdown-menu>
+      <van-dropdown-item bind:change="onSwitch4Change" value="{{ value1 }}" options="{{ option4 }}" />
+    </van-dropdown-menu>
+    <button bind:tap="sub">确定</button>
+  </view>
+</view>
