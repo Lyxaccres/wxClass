@@ -1,10 +1,10 @@
 <view class="container">
   <view class="logo">
-    <image src="../../asset/gg.png"></image>
+    <image src="../../asset/bg.jpg" mode="aspectFill"/>
   </view>
   <view class="nav-list">
     <view class="nav-item" bindtap="nav" data-index="{{index}}" wx:for="{{navList}}" wx:key>
-      <image class="nav-icon" src="{{item.icon}}" mode="aspectFill"></image>
+      <image class="nav-icon" src="{{item.icon}}" mode="aspectFill" bindtap="DateShow" data-index="{{index}}"></image>
       <view class="nav-title">{{item.title}}</view>
     </view>
   </view>
@@ -14,8 +14,13 @@
       <view class="option-time">--</view>
     </view>
     <view class="course-box">
-      <image class="empty-img" src="../../asset/2023-05-07-09-58-32.jpg" mode="aspectFill"></image>
-      <view class="empty-title">目前只有大数据本212（专升本）班级的课表！</view>
+      <image class="empty-img" src="" mode="aspectFill"></image>
+      <view class="empty-title">目前只有大数据本212班级的课表！</view>
     </view>
   </view>
 </view>
+<van-popup show="{{ ClassDateShow }}" bind:close="dateClose">
+  <view>
+  <image class="DateClass" src="../../asset/classdate.jpg" mode="scaleToFill"></image>
+  </view>
+</van-popup>

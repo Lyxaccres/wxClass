@@ -10,7 +10,7 @@ export default function createRequest(option){
             }, 1500);
             return
         }
-        const baseUrl="http://43.138.45.28:5204/api"
+        const baseUrl="https://lyxaccres.top/api"
         const url = `${baseUrl}${option.url}`
         const header = {token}
         let showLoading = false

@@ -4,11 +4,37 @@ const app = getApp<IAppOption>()
 
 Page({
   data: {
+    ClassDateShow:false,
     navList:[
         {
             title:'课表',
             icon:'../../asset/tab/分享.png',
             path:"../course/index"
+        },
+        {
+          title:'课程时间',
+          icon:'../../asset/tab/时间戳.png',
+          path:""
+        },
+        {
+          title:'',
+          icon:'',
+          path:""
+        },
+        {
+          title:'',
+          icon:'',
+          path:""
+        },
+        {
+          title:'',
+          icon:'',
+          path:""
+        },
+        {
+          title:'',
+          icon:'',
+          path:""
         }
     ]
   },
@@ -28,5 +54,18 @@ Page({
       wx.reLaunch({
           url:path
       })
+  },
+  dateClose(){
+    this.setData({ ClassDateShow: false });
+  },
+
+  DateShow(event){
+    const index = event.currentTarget.dataset.index
+    if(index == 1){
+      this.setData({ ClassDateShow: true });
+    }
+    
   }
+
 })
+

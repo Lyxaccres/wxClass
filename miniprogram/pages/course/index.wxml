@@ -1,8 +1,8 @@
 <!--pages/course/index.wxml-->
 <view class="centent">
-    <image class="centent-img" src="../../asset/tab/刷新.png" mode="aspectFill"></image>
-    <view bindtap="selectWeek" class="centent-title">第{{nowweek}}周</view>
-  </view>
+  <image class="centent-img" src="../../asset/tab/刷新.png" mode="aspectFill"></image>
+  <view bindtap="selectWeek" class="centent-title">第{{nowweek}}周</view>
+</view>
 <view class="container">
 
   <view class="week-list">
@@ -13,18 +13,18 @@
     <view class="week-item" wx:for="{{weekDayCount}}" wx:key>
       <text class="week-name">周{{weekIndexText[index]}}</text>
       <text class="week-date">
-      {{weekCalendar[index] == 1 ? (nowMonth == 12 || nowMonth == 1 ? 1 : nowMonth + 1)+'月1' : (weekCalendar[index])}}日
+        {{weekCalendar[index] == 1 ? (nowMonth == 12 || nowMonth == 1 ? 1 : nowMonth + 1)+'月1' : (weekCalendar[index])}}日
       </text>
     </view>
   </view>
-  <view class="course-content">
+  <view class="course-content" >
     <view class="course-nums">
       <view class="course-num" wx:for="{{12}}" wx:key>
         {{ index + 1 > 9 ? index + 1 : '0' + (index+1) }}
       </view>
     </view>
     <view class="course-list">
-      <view class="course-item" wx:for="{{courseList}}" wx:key="key" style="left: {{(item.week - 1) * ((windowWidth * 2 - 50) / 7)}}rpx;top:{{(item.section - 1) * 120}}rpx;height: {{item.sectionCount * 120}}rpx;">
+      <view class="course-item" wx:for="{{courseList}}" wx:key="key" style="left: {{(item.week - 1) * ((windowWidth * 2 - 50) / 7)}}rpx;top:{{(item.section - 1) * 120}}rpx;height: {{item.sectionCount * 120}}rpx; "   data-course="{{item}}" bindtap="textShowContent">
         <view class="course-item_content" style="background-color: {{item.color}};">
           {{item.name}}@{{item.address}}
         </view>
@@ -41,5 +41,13 @@
         </view>
       </view>
     </view>
+  </view>
+</van-popup>
+
+<van-popup show="{{ textshow }}" bind:close="textClose">
+  <view class="cententtext">
+    <view>课程：{{centetext.name}}</view>
+    <view>地点：{{centetext.address}}</view>
+    <view>时间：{{classdate[centetext.section-1].s}} -- {{classdate[centetext.section+(centetext.sectionCount-1)-1].e}}</view>
   </view>
 </van-popup>

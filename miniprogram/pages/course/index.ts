@@ -8,13 +8,77 @@ Page({
    */
   data: {
     nowweek: 1,
+    textshow: false,
     totaWeek: 20,
     showSwitchWeek: false,
     weekDayCount: 7,
-    starDate: '2023/08/28',
+    starDate: '2023/09/04',
     weekIndexText: ['一', '二', '三', '四', '五', '六', '日'],
     nowMonth: 1,
-    courseList: []
+    classdate:[
+      {
+        id:1,
+        s:"7:50",
+        e:"8:30"
+      },
+      {
+        id:2,
+        s:"8:40",
+        e:"9:20"
+      },
+      {
+        id:3,
+        s:"9:30",
+        e:"10:10"
+      },
+      {
+        id:4,
+        s:"10:30",
+        e:"11:10"
+      },
+      {
+        id:5,
+        s:"11:20",
+        e:"12:00"
+      },
+      {
+        id:6,
+        s:"14:30",
+        e:"15:10"
+      },
+      {
+        id:7,
+        s:"15:20",
+        e:"16:00"
+      },
+      {
+        id:8,
+        s:"16:10",
+        e:"16:50"
+      },
+      {
+        id:9,
+        s:"17:00",
+        e:"17:40"
+      },
+      {
+        id:10,
+        s:"19:30",
+        e:"20:10"
+      },
+      {
+        id:11,
+        s:"20:20",
+        e:"21:00"
+      },
+      {
+        id:12,
+        s:"21:10",
+        e:"21:50"
+      }
+    ],
+    courseList: [],
+    centetext:{}
   },
 
 
@@ -128,8 +192,16 @@ Page({
     let arr = ["#9933FF", "#6699FF", "#6699CC", "#339966", "#FFCCCC", "#FF6699", "#6600CC", "#0066CC", "#CC00CC", "#CC9900"];
     let color = "";
     color += arr[Math.floor(Math.random() * 10)];
-    console.log(color)
     return color;
+  },
+  textShowContent(event){
+    this.setData({ textshow: true });
+    const centen = event.currentTarget.dataset.course
+    this.setData({ centetext: centen });
+  },
+
+  textClose() {
+    this.setData({ textshow: false });
   },
 
 })
